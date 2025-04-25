@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uxplorers</title>
+  <link rel="icon" href="https://uxplorers.vercel.app/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      text-align: center;
+      padding: 1rem;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00e5ff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      padding: 6rem 4rem 4rem;
+      background-image: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      animation: slideLeft 1.2s ease-out;
+    }
+
+    @keyframes slideLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .hero-content h1 span {
+      color: #00e5ff;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #ffca28;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button, .access-button {
+      display: inline-block;
+      background-color: #00e5ff;
+      color: #000;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+      margin-right: 1rem;
+    }
+
+    .cta-button:hover, .access-button:hover {
+      background-color: #00bcd4;
+      transform: scale(1.05);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #00e5ff;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .about-section {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .about-section img {
+      max-width: 400px;
+      border-radius: 20px;
+    }
+
+    .about-section div {
+      flex: 1;
+    }
+
+    .about-section p {
+      margin-bottom: 1rem;
+      color: #e0f7fa;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <div class="hero-content">
+      <h1>Empowering <span>Neurodiverse</span> Individuals<br>with AI & Accessibility</h1>
+      <p>Personalized tools for education, employment, and daily life</p>
+      <a class="cta-button" href="https://github.com/theuxplorers/Uxplorers" target="_blank">Get Started</a>
+      <a class="access-button" href="https://uxplorers.vercel.app" target="_blank">Visit Platform</a>
+    </div>
+  </header>
+
+  <div class="container" id="about">
+    <h2>About Us</h2>
+    <div class="about-section">
+      <img src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?auto=format&fit=crop&w=800&q=60" alt="Team Collaboration">
+      <div>
+        <p><strong>Uxplorers</strong> is a mission-driven initiative dedicated to empowering neurodiverse individuals through inclusive, AI-powered solutions. Our journey is shaped by innovation, empathy, and a deep understanding of unique user needs.</p>
+        <p>We bridge the gap between design and technology to deliver tools for learning, employment, and community engagement—tailored for accessibility and impact.</p>
+        <p>With a commitment to open innovation and human-centered design, we strive to create a world where everyone thrives, regardless of neurological differences.</p>
+      </div>
+    </div>
+  </div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
