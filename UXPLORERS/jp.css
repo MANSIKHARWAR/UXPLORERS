@@ -1,0 +1,231 @@
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 7xl;
+    margin: 0 auto;
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e8f0e9;
+}
+
+/* Nav links Styling */
+.nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4a4a4a;  /* Light gray color */
+}
+
+/* Link hover effect */
+.nav-links li a {
+    text-decoration: none;
+    color: #4a4a4a;  /* Default color */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for Nav Links */
+.nav-links li a:hover {
+    color: #ff6f61;  /* Accent color */
+    transform: translateY(-2px);  /* Slight upward movement on hover */
+}
+
+/* Contact Me Button Styling */
+.btn-contact {
+    background-color: #ffffff;  /* White background */
+    color: #344C36;  /* Dark text color */
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 2px solid #344C36;  /* Border with the same color as text */
+}
+
+/* Hover effect for Contact Me Button */
+.btn-contact:hover {
+    background-color: #e8f0e9;  /* Light green background on hover */
+    color: #344C36;  /* Text stays dark */
+    transform: translateY(-2px);  /* Slight upward movement */
+}
+
+
+/* Hover effect for Contact Me Button */
+.btn-contact:hover {
+    background-color: #2a3d2a;  /* Darker green on hover */
+    color: white;  /* Keep the text color white on hover */
+    transform: scale(1.05);  /* Slightly enlarge the button */
+}
+
+/* Enhanced Hover Effects */
+section#job {
+    background-color: #f5f7f4;  /* Light background for contrast */
+    padding-top: 50px;  /* Create space between header and section */
+    animation: fadeIn 1s ease-in-out;  /* Fade-in animation on load */
+}
+
+/* Header */
+h1 {
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    color: #344C36;  /* Main header color */
+}
+
+/* Individual Cards with Hover Effects */
+.bg-white {
+    border: 1px solid #e0e0e0; /* Light border for professionalism */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bg-white:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);  /* Increased shadow on hover */
+    transform: scale(1.05) translateY(-5px);  /* Slightly scale and raise the element */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* Add some subtle text enhancements */
+h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #344C36;  /* Bold text color */
+    margin-bottom: 15px;
+}
+
+/* Subtle hover on text links */
+a {
+    color: #344C36;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2a3d2a; /* Darker green on hover */
+    text-decoration: underline;
+}
+
+/* Smooth Text Transition */
+p {
+    color: #6b7280; /* Lighter text color */
+    line-height: 1.6;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+p:hover {
+    color: #2a3d2a;  /* Darker text color on hover for emphasis */
+}
+
+/* Global Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    section#job {
+        padding: 20px;
+    }
+
+    .bg-white {
+        padding: 16px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Enhanced Footer Styling */
+.footer {
+    background-color: #344C36;  /* Dark background for the footer */
+    color: #fff;  /* White text color */
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-cols {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;  /* Allow for responsive stacking */
+}
+
+.footer-cols .col {
+    flex: 1;
+    min-width: 220px;  /* Ensures columns don't shrink too much */
+    margin-right: 20px;
+}
+
+.footer h4 {
+    font-size: 1.125rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: uppercase;  /* For a more professional look */
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 8px;
+}
+
+.footer ul li a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: #ff6f61;  /* Accent color for links on hover */
+}
+
+/* Copyright Text */
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .footer-cols {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer h4 {
+        font-size: 18px;
+    }
+
+    .footer ul li a {
+        font-size: 14px;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+}
+  

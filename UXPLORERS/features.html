@@ -1,171 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uxplorers</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    header, nav, footer {
-      background: rgba(0, 0, 0, 0.8);
-      text-align: center;
-      padding: 1.5rem;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #00e5ff;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 20px;
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      color: #00e5ff;
-      margin-bottom: 1rem;
-    }
-
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      text-align: center;
-      gap: 1.5rem;
-    }
-
-    .feature-box {
-      background: #111;
-      padding: 1rem;
-      border-radius: 15px;
-      flex: 1 1 200px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    }
-
-    .feature-box h3 {
-      margin-top: 0.5rem;
-      color: #ffca28;
-    }
-
-    .team-section {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 2rem;
-      border-radius: 20px;
-    }
-
-    .team-info {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      color: #e0f7fa;
-    }
-
-    .team-info div {
-      margin: 1rem;
-    }
-
-    footer {
-      margin-top: 2rem;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Wellness Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
+<body class="bg-gradient-to-b from-purple-100 to-blue-50 font-sans text-gray-800">
+  <!-- Header -->
+  <header class="header relative overflow-hidden">
+    <!-- Background Image -->
+    <img src="/image/wellness bg.jpg" alt="Wellness Background" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0">
+  
+    <!-- Navigation Bar -->
+    <nav class="relative z-20 flex justify-between items-center px-6 py-4 bg-[#344C36] bg-opacity-90 text-white shadow-lg">
+      <div class="text-xl font-bold tracking-wide">Personalisation</div>
+      <ul class="flex space-x-6 text-sm md:text-base">
+        <li><a href="#planner" class="hover:underline transition duration-300">Planner</a></li>
+        <li><a href="#features" class="hover:underline transition duration-300">Features</a></li>
+        <li><a href="#dashboard" class="hover:underline transition duration-300">Dashboard</a></li>
+        <li><a href="#contact" class="hover:underline transition duration-300">Contact</a></li>
+      </ul>
+    </nav>
+  
+    <!-- Header Content -->
+    <div class="relative z-10 text-center py-10">
+      <h1 class="header-title animate-fade-in-down text-3xl font-bold text-[#344C36]">Your Personalized Wellness Hub</h1>
+      <p class="header-subtitle animate-fade-in-up text-lg text-[#344C36]">Guided by your mood and energy</p>
+    
+      <!-- Avatar Trigger -->
+      <div class="chatbot-avatar mt-6 flex justify-center">
+        <img src="/image/ai bot.png" alt="AI Chatbot"
+          class="chatbot-img hover:scale-110 transition-transform duration-500 shadow-lg cursor-pointer"
+          onclick="toggleChatbot()" />
+      </div>
+    
+      <!-- Chatbot Widget Container -->
+      <div id="chatbot-container" class="hidden fixed bottom-6 right-6 w-80 h-[500px] bg-white rounded-xl shadow-2xl z-50">
+        <!-- The chatbot script will load here -->
+      </div>
+    </div>
+    
+  
 
-<body>
-  <header>
-    <h1>Uxplorers</h1>
-    <p>Explore Creativity. Build the Future.</p>
-  </header>
+  <!-- Mood-Based Planner -->
+  <section class="p-6">
+    <h2 class="text-xl font-semibold mb-4">Mood-Based Daily Planner & Routines</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white rounded-2xl shadow-md p-4">
+        <h3 class="text-lg font-bold mb-2">Morning</h3>
+        <p>Stretch, light meditation, set intentions</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-4">
+        <h3 class="text-lg font-bold mb-2">Afternoon</h3>
+        <p>Short walk, mindful breathing, hydration check</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-4">
+        <h3 class="text-lg font-bold mb-2">Evening</h3>
+        <p>Gratitude journaling, calming music, screen break</p>
+      </div>
+    </div>
+  </section>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#features">Features</a>
-    <a href="#team">Team</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="container">
-    <section id="about">
-      <h2>About Us</h2>
-      <p>We are a team of curious minds and creators. <strong>Uxplorers</strong> is all about discovering the intersection between <em>design</em>, <em>development</em>, and <em>innovation</em>. Join us in our journey of building <u>stunning</u>, <u>functional</u>, and <u>user-friendly</u> digital experiences.</p>
-    </section>
-
-    <section id="features">
-      <h2>Features</h2>
-      <div class="features">
-        <div class="feature-box">
-          <h3>Accessibility Tools</h3>
-          <p>Text-to-Speech, Dark Mode, Simplified UI</p>
-        </div>
-        <div class="feature-box">
-          <h3>AI Learning Modules</h3>
-          <p>Personalized learning with AI-driven content</p>
-        </div>
-        <div class="feature-box">
-          <h3>Job Portal</h3>
-          <p>For Neurodiverse Individuals</p>
-        </div>
-        <div class="feature-box">
-          <h3>Community & Mentorship</h3>
-          <p>Engage with mentors and like-minded peers</p>
+  <!-- Adaptive Content -->
+  <section class="p-6">
+    <h2 class="text-2xl font-semibold mb-6 text-gray-800">Adaptive Content</h2>
+  
+    <div class="flex space-x-4 overflow-x-auto no-scrollbar px-1">
+      <!-- Calming Video Card -->
+      <div class="adaptive-card">
+        <p class="card-title">Calming Video</p>
+        <div class="media-box">
+          <video
+            class="media-element"
+            controls
+            preload="metadata"
+            poster="/image/darling-9539996_1280.jpg"
+          >
+            <source src="/image/emotional-piano-music-331765.mp3" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
-    </section>
-
-    <section id="team" class="team-section">
-      <h2>Let's Meet Our Team</h2>
-      <h3>Team UXPLORERS</h3>
-      <div class="team-info">
-        <div>
-          <strong>Team Size:</strong> 2
-        </div>
-        <div>
-          <strong>Project Status:</strong> In Progress
+      
+  
+      <!-- Breathing Tool Card -->
+      <div class="adaptive-card">
+        <p class="card-title">Breathing Tool</p>
+        <div class="media-box">
+          <img src="/image/woman-558378_1280.jpg" class="media-element" alt="Breathing Tool Thumbnail" />
         </div>
       </div>
-    </section>
+  
+      <!-- Soothing Audio Card -->
+      <div class="adaptive-card">
+        <p class="card-title">Soothing Audio</p>
+        <div class="media-box">
+          <video
+          class="media-element"
+          controls
+          preload="metadata"
+          poster="/image/lotus-7063576_1280.jpg"
+        >
+          <source src="/image/emotional-piano-music-331765.mp3" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
 
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Email us at: <a href="mailto:contact@uxplorers.com"><strong>contact@uxplorers.com</strong></a></p>
-    </section>
+
+  <!-- Smart Dashboard -->
+  <section class="p-6">
+    <h2 class="text-2xl font-semibold mb-6 text-gray-800 animate-fadeIn">Energy Patterns & Progress</h2>
+  
+    <div class="dashboard-grid grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Energy Tracker Card -->
+      <div class="dashboard-card transition-transform hover:scale-[1.02] hover:shadow-xl w-full md:col-span-2 max-w-[95%] mx-auto">
+        <h3 class="text-lg font-bold mb-3 text-gray-700">Energy Tracker</h3>
+        <div class="relative overflow-hidden rounded-lg">
+          <img src="/image/energy line graph.webp" alt="Energy Graph" class="w-full h-48 object-contain animate-slideUpFade" />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+
+<!-- Mood Progress Card -->
+<div class="dashboard-card mood-card animate-fadeIn">
+  <h3 class="text-lg font-bold mb-4 text-gray-700">Mood Progress</h3>
+
+  <!-- Mood Emojis with Labels -->
+  <div class="flex justify-between items-center text-3xl mb-4">
+    <div class="flex flex-col items-center group">
+      <span class="emoji mood-happy">😊</span>
+      <span class="text-sm text-gray-500 mt-1">Happy</span>
+    </div>
+    <div class="flex flex-col items-center group">
+      <span class="emoji mood-calm">😌</span>
+      <span class="text-sm text-gray-500 mt-1">Calm</span>
+    </div>
+    <div class="flex flex-col items-center group">
+      <span class="emoji mood-tired">😴</span>
+      <span class="text-sm text-gray-500 mt-1">Tired</span>
+    </div>
+    <div class="flex flex-col items-center group">
+      <span class="emoji mood-confused">😕</span>
+      <span class="text-sm text-gray-500 mt-1">Unclear</span>
+    </div>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Uxplorers. All rights reserved.</p>
-  </footer>
-</body>
+  <!-- Progress Trend Bar (Just a visual) -->
+  <div class="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+    <div class="h-full bg-gradient-to-r from-green-400 via-yellow-300 to-red-400 w-[70%] animate-pulse-slow"></div>
+  </div>
+</div>
 
+
+<footer class="footer">
+  <div class="footer-cols">
+    <div class="col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Help Center</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="mailto:uxplorers@mail.com">uxplorers@mail.com</a></li>
+        <li><a href="tel:+911234567890">+91 1234567890</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">© 2025 UXPLORERS. All rights reserved.</p>
+</footer>
+
+</body>
 </html>

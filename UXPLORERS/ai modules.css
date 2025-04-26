@@ -1,0 +1,149 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #344C36; /* Dark green */
+    padding: 16px 30px;
+    font-family: 'Poppins', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Navbar Logo */
+.navbar .logo {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Navbar Links */
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+/* Navbar Link Styling */
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+/* Navbar Link Hover Effects */
+.navbar .nav-links li a:hover {
+    color: #ff6f61; /* Accent color for hover */
+}
+
+/* Contact Button Styling */
+.navbar .btn-contact {
+    background-color: #ffffff;
+    color: #344C36;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.navbar .btn-contact:hover {
+    background-color: #ff6f61;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjusting navbar for mobile view */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    /* Making the contact button a block element */
+    .navbar .btn-contact {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.footer {
+    background-color: #344C36;
+    color: white;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .footer-cols {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+  }
+  
+  .col {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .col h4 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    color: #ffffff;
+    border-bottom: 2px solid #7db77c;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  .col ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .col ul li {
+    margin-bottom: 10px;
+  }
+  
+  .col ul li a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .col ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  
+  .copyright {
+    text-align: center;
+    margin-top: 30px;
+    color: #cccccc;
+    font-size: 0.9rem;
+  }
+  

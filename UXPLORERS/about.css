@@ -1,0 +1,310 @@
+/* ======== General Body Styles ======== */
+/* about.css */
+
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f3fdf4;
+    color: #344C36;
+  }
+  
+  /* Header */
+  header {
+    background-color: #344C36;
+    color: white;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-left: 1rem;
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 1.5rem;
+    margin-right: 1rem;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #a0d8a7;
+  }
+  
+  nav ul li a.bg-white {
+    background-color: white;
+    color: #344C36;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+  }
+  
+  nav ul li a.bg-white:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* About Us Section */
+  section {
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #344C36;
+  }
+  
+  section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #616161;
+  }
+  
+  section div p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #616161;
+  }
+  
+  /* Testimonials Section */
+  .testimonials {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  .testimonial {
+    background-color: #f7f7f7;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    min-width: 250px;
+    text-align: center;
+  }
+  
+  .testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial .font-semibold {
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  
+  /* How UXPLORERS Works Section */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-items: center;
+  }
+  
+  .grid-container div {
+    text-align: center;
+  }
+  
+  .grid-container h3 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .grid-container p {
+    font-size: 1rem;
+    color: #616161;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #344C36;
+    color: white;
+    padding: 3rem 1.5rem;
+    margin-top: 4rem;
+    text-align: center;
+  }
+  
+  footer h4 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  footer ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  footer ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  footer ul li a:hover {
+    color: #a0d8a7;
+  }
+  
+  footer p {
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.5rem;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      margin-right: 0;
+      gap: 1rem;
+      align-items: center;
+    }
+  
+    section {
+      padding: 2rem 1rem;
+    }
+  
+    .testimonials {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .testimonial {
+      width: 80%;
+      margin-bottom: 1.5rem;
+    }
+  
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  
+  
+  /* Style for the 'Get Started' Button */
+.btn-main {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #344C36; /* Dark green background */
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none; /* Removes underline */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-main:hover {
+    background-color: #2a3d2b; /* Darker shade of green on hover */
+    transform: scale(1.05); /* Slightly enlarges the button */
+  }
+  
+  .btn-main:focus {
+    outline: none; /* Removes default focus outline */
+  }
+  
+  /* ======== Footer Styles ======== */
+ /* Footer Styles */
+.footer {
+    background-color: #344C36; /* Dark green background */
+    color: white; /* White text */
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .footer-cols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto; /* Center footer columns */
+  }
+  
+  .footer .col h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #e6f6e6; /* Light text for headings */
+  }
+  
+  .footer .col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer .col ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer .col ul a {
+    color: #e6f6e6; /* Light text for links */
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease; /* Smooth transition */
+  }
+  
+  .footer .col ul a:hover {
+    color: #b9e8b9; /* Light green on hover */
+    text-decoration: underline;
+    padding-left: 0.3rem; /* Adds subtle padding when hovered */
+  }
+  
+  .footer .copyright {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #b9e8b9; /* Slightly lighter color for the copyright text */
+  }
+  
+  /* Mentor Spotlight Image Fix */
+  .mentor-image {
+    width: 3.5rem; /* Fixed width */
+    height: 3.5rem; /* Fixed height */
+    object-fit: cover; /* Ensures image fits correctly */
+    border-radius: 9999px; /* Makes the image circular */
+    border: 2px solid #344C36; /* Green border matching the footer */
+  }
+  
+  /* Responsive Utility (Optional) */
+  @media (max-width: 768px) {
+    .footer-cols {
+      flex-direction: column; /* Stacks columns vertically on smaller screens */
+      gap: 1.5rem; /* Reduced gap for smaller screens */
+    }
+  
+    .navbar .nav-links {
+      flex-direction: column; /* Stacks navigation links vertically */
+      align-items: flex-start; /* Align links to the left */
+    }
+  }
+  
+  
