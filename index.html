@@ -1,0 +1,1126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NeuroThrive — Every Mind Thrives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0e1a;--surface:#111827;--card:#161d2e;--border:#1e2d45;--accent:#4f8aff;--accent2:#7c3aed;--accent3:#10b981;--accent4:#f59e0b;--accent5:#ef4444;--text:#e8eaf0;--muted:#8b93a5;--font:'Sora',sans-serif;--body:'DM Sans',sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--body);min-height:100vh;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--font)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,14,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1.5rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--font);font-weight:800;font-size:1.3rem;color:var(--accent);letter-spacing:-0.02em;cursor:pointer}
+.logo span{color:var(--accent3)}
+.nav-tabs{display:flex;gap:2px;background:var(--surface);border-radius:10px;padding:3px}
+.nav-tab{padding:6px 14px;border-radius:8px;cursor:pointer;font-size:0.8rem;font-weight:500;color:var(--muted);border:none;background:transparent;font-family:var(--body);transition:all .2s}
+.nav-tab.active,.nav-tab:hover{background:var(--card);color:var(--text)}
+.nav-tab.active{color:var(--accent)}
+.theme-toggle{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:var(--surface);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem}
+
+/* HERO */
+.hero{max-width:1200px;margin:0 auto;padding:5rem 1.5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(79,138,255,.12);border:1px solid rgba(79,138,255,.3);border-radius:100px;padding:6px 16px;font-size:0.78rem;font-weight:600;color:var(--accent);margin-bottom:1.5rem;letter-spacing:.04em}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--accent3);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero h1{font-size:3.2rem;font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.2rem}
+.hero h1 .grad{background:linear-gradient(135deg,#4f8aff,#7c3aed,#10b981);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.05rem;color:var(--muted);line-height:1.8;margin-bottom:2rem}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{padding:12px 28px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:var(--font);font-weight:600;font-size:.9rem;cursor:pointer;transition:all .2s;letter-spacing:.01em}
+.btn-primary:hover{background:#3a7bff;transform:translateY(-1px)}
+.btn-outline{padding:12px 28px;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:10px;font-family:var(--font);font-weight:600;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.hero-visual{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.5rem;position:relative;overflow:hidden}
+.hero-visual::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(79,138,255,.15),transparent 70%);pointer-events:none}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center}
+.stat-num{font-family:var(--font);font-size:2rem;font-weight:800;margin-bottom:.3rem}
+.stat-label{font-size:.75rem;color:var(--muted);line-height:1.4}
+.s-blue{color:var(--accent)}.s-purple{color:#a78bfa}.s-green{color:var(--accent3)}.s-amber{color:var(--accent4)}
+
+/* SECTIONS */
+.section{max-width:1200px;margin:0 auto;padding:3rem 1.5rem}
+.section-head{text-align:center;margin-bottom:2.5rem}
+.section-head h2{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.5rem}
+.section-head p{color:var(--muted);font-size:.95rem}
+.tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.8rem}
+.tag-blue{background:rgba(79,138,255,.15);color:var(--accent)}
+.tag-purple{background:rgba(124,58,237,.15);color:#a78bfa}
+.tag-green{background:rgba(16,185,129,.15);color:var(--accent3)}
+.tag-amber{background:rgba(245,158,11,.15);color:var(--accent4)}
+
+/* FEATURE GRID */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.feat-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.feat-card::after{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;border-radius:16px;pointer-events:none}
+.feat-card.blue::after{background:radial-gradient(circle at top right,rgba(79,138,255,.08),transparent)}
+.feat-card.purple::after{background:radial-gradient(circle at top right,rgba(124,58,237,.08),transparent)}
+.feat-card.green::after{background:radial-gradient(circle at top right,rgba(16,185,129,.08),transparent)}
+.feat-card.amber::after{background:radial-gradient(circle at top right,rgba(245,158,11,.08),transparent)}
+.feat-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.feat-card:hover::after{opacity:1}
+.feat-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem}
+.ic-blue{background:rgba(79,138,255,.15)}.ic-purple{background:rgba(124,58,237,.15)}.ic-green{background:rgba(16,185,129,.15)}.ic-amber{background:rgba(245,158,11,.15)}
+.feat-card h3{font-size:.95rem;font-weight:700;margin-bottom:.5rem}
+.feat-card p{font-size:.82rem;color:var(--muted);line-height:1.7}
+
+/* PAGE CONTENT WRAPPER */
+.page{display:none;min-height:400px}
+.page.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* LEARNING MODULE */
+.module-grid{display:grid;grid-template-columns:280px 1fr;gap:1.5rem}
+.module-sidebar{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem}
+.module-sidebar h4{font-size:.85rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.8rem;padding:0 .5rem}
+.module-item{display:flex;align-items:center;gap:10px;padding:.6rem .8rem;border-radius:10px;cursor:pointer;transition:all .2s;margin-bottom:2px}
+.module-item:hover,.module-item.sel{background:rgba(79,138,255,.1)}
+.module-item.sel{border-left:3px solid var(--accent)}
+.module-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.d-done{background:var(--accent3)}.d-active{background:var(--accent)}.d-locked{background:var(--border)}
+.module-item-label{font-size:.83rem;font-weight:500}
+.module-item-sub{font-size:.72rem;color:var(--muted)}
+.module-content{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem}
+.lesson-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.lesson-title{font-size:1.3rem;font-weight:700}
+.lesson-meta{display:flex;gap:8px}
+.pill{padding:4px 10px;border-radius:100px;font-size:.72rem;font-weight:600}
+.p-blue{background:rgba(79,138,255,.15);color:var(--accent)}
+.p-green{background:rgba(16,185,129,.15);color:var(--accent3)}
+.lesson-video{background:var(--surface);border:1px solid var(--border);border-radius:12px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;margin-bottom:1.5rem;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.lesson-video:hover{border-color:var(--accent)}
+.play-btn{width:52px;height:52px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.lesson-steps{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.5rem}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.8rem;display:flex;align-items:flex-start;gap:10px}
+.step-num{width:24px;height:24px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+.step p{font-size:.82rem;color:var(--muted);line-height:1.6}
+.progress-bar-wrap{background:var(--surface);border-radius:100px;height:8px;margin:1rem 0 .5rem}
+.progress-bar{height:8px;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .6s ease}
+.quiz-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem}
+.quiz-q{font-size:.9rem;font-weight:600;margin-bottom:.8rem}
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.quiz-opt{padding:.6rem .8rem;background:var(--card);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.82rem;transition:all .2s;font-family:var(--body)}
+.quiz-opt:hover{border-color:var(--accent);color:var(--accent)}
+.quiz-opt.correct{border-color:var(--accent3);background:rgba(16,185,129,.1);color:var(--accent3)}
+.quiz-opt.wrong{border-color:var(--accent5);background:rgba(239,68,68,.1);color:var(--accent5)}
+
+/* JOB PORTAL */
+.job-layout{display:grid;grid-template-columns:300px 1fr;gap:1.5rem}
+.job-filter{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.2rem}
+.filter-sec{margin-bottom:1.5rem}
+.filter-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.6rem}
+.filter-chip-group{display:flex;flex-wrap:wrap;gap:.4rem}
+.f-chip{padding:5px 12px;border:1px solid var(--border);border-radius:100px;font-size:.75rem;cursor:pointer;transition:all .2s;font-family:var(--body)}
+.f-chip:hover,.f-chip.on{border-color:var(--accent);background:rgba(79,138,255,.1);color:var(--accent)}
+.job-cards{display:flex;flex-direction:column;gap:.8rem}
+.job-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem;transition:all .2s;cursor:pointer;position:relative}
+.job-card:hover{border-color:var(--accent)}
+.job-card-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:.8rem}
+.job-logo{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;font-family:var(--font);flex-shrink:0}
+.job-title{font-weight:700;font-size:.92rem;margin-bottom:.2rem}
+.job-company{font-size:.8rem;color:var(--muted)}
+.job-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem}
+.job-tag{padding:3px 9px;border-radius:6px;font-size:.7rem;font-weight:600}
+.match-badge{position:absolute;top:1rem;right:1rem;background:rgba(16,185,129,.15);color:var(--accent3);border:1px solid rgba(16,185,129,.3);padding:3px 10px;border-radius:100px;font-size:.72rem;font-weight:700}
+.job-bottom{display:flex;align-items:center;justify-content:space-between}
+.job-salary{font-size:.82rem;color:var(--accent4);font-weight:600}
+.job-apply{padding:6px 16px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:.78rem;font-weight:600;font-family:var(--body);transition:all .2s}
+.job-apply:hover{background:#3a7bff}
+.resume-section{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-top:1.5rem}
+.resume-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.resume-field label{display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.05em}
+.resume-field input,.resume-field textarea{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.6rem .8rem;color:var(--text);font-family:var(--body);font-size:.85rem;outline:none;transition:border .2s;resize:none}
+.resume-field input:focus,.resume-field textarea:focus{border-color:var(--accent)}
+.ai-suggest-btn{width:100%;padding:.7rem;background:linear-gradient(135deg,rgba(79,138,255,.2),rgba(124,58,237,.2));border:1px solid rgba(79,138,255,.3);border-radius:10px;color:var(--text);cursor:pointer;font-family:var(--font);font-weight:600;font-size:.85rem;transition:all .2s;margin-top:.8rem}
+.ai-suggest-btn:hover{background:linear-gradient(135deg,rgba(79,138,255,.3),rgba(124,58,237,.3))}
+.ai-output{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-top:.8rem;font-size:.83rem;color:var(--muted);line-height:1.8;display:none}
+.ai-output.show{display:block;animation:fadeIn .4s ease}
+
+/* WELLNESS */
+.wellness-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+.mood-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem;text-align:center;cursor:pointer;transition:all .2s}
+.mood-card:hover,.mood-card.sel{border-color:var(--accent);background:rgba(79,138,255,.05)}
+.mood-emoji{font-size:2.2rem;margin-bottom:.5rem}
+.mood-label{font-size:.82rem;font-weight:600}
+.mood-sub{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+.wellness-tools{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem}
+.tool-card h4{font-size:.95rem;font-weight:700;margin-bottom:.3rem}
+.tool-card p{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+.breathing-circle{width:100px;height:100px;border-radius:50%;background:rgba(79,138,255,.15);border:2px solid var(--accent);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .3s}
+.breathing-circle.expand{transform:scale(1.4);background:rgba(79,138,255,.25)}
+.affirmation-box{background:var(--surface);border-radius:10px;padding:1rem;font-size:.88rem;line-height:1.7;font-style:italic;color:var(--text);margin-bottom:.8rem;min-height:80px}
+.chart-mini{height:80px;background:var(--surface);border-radius:10px;display:flex;align-items:flex-end;gap:4px;padding:.6rem;margin-bottom:.8rem}
+.bar{flex:1;background:var(--accent);border-radius:4px 4px 0 0;opacity:.7;transition:all .3s}
+.bar:hover{opacity:1}
+
+/* CREDENTIALS */
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.cred-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.3rem;position:relative;overflow:hidden}
+.cred-card::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;opacity:.15}
+.cred-blue::before{background:var(--accent)}.cred-purple::before{background:#7c3aed}.cred-green::before{background:var(--accent3)}
+.cred-icon{font-size:1.8rem;margin-bottom:.8rem}
+.cred-title{font-weight:700;font-size:.92rem;margin-bottom:.3rem}
+.cred-issuer{font-size:.75rem;color:var(--muted);margin-bottom:.8rem}
+.cred-hash{font-family:monospace;font-size:.68rem;color:var(--muted);background:var(--surface);padding:.4rem .6rem;border-radius:6px;margin-bottom:.8rem;word-break:break-all}
+.verify-btn{width:100%;padding:.5rem;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:.78rem;font-weight:600;font-family:var(--body);transition:all .2s}
+.verify-btn:hover{border-color:var(--accent3);color:var(--accent3)}
+.verified-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:6px;padding:3px 8px;font-size:.7rem;font-weight:700;color:var(--accent3)}
+
+/* ACCESSIBILITY PANEL */
+.a11y-panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem}
+.a11y-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.a11y-option{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;cursor:pointer;transition:all .2s}
+.a11y-option:hover,.a11y-option.on{border-color:var(--accent);background:rgba(79,138,255,.08)}
+.a11y-icon{font-size:1.6rem;margin-bottom:.5rem}
+.a11y-label{font-size:.78rem;font-weight:600}
+.a11y-desc{font-size:.68rem;color:var(--muted);margin-top:.2rem}
+.font-slider{width:100%;margin:.5rem 0}
+
+/* COMMUNITY */
+.community-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.post-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem;margin-bottom:.8rem}
+.post-header{display:flex;align-items:center;gap:10px;margin-bottom:.8rem}
+.avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0}
+.post-author{font-weight:600;font-size:.85rem}
+.post-time{font-size:.72rem;color:var(--muted)}
+.post-body{font-size:.83rem;color:var(--muted);line-height:1.7;margin-bottom:.8rem}
+.post-actions{display:flex;gap.8rem;gap:1rem}
+.post-action{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.78rem;font-family:var(--body);transition:color .2s;display:flex;align-items:center;gap:5px}
+.post-action:hover{color:var(--accent)}
+.event-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem;margin-bottom:.8rem;display:flex;gap:12px;align-items:center}
+.event-date{background:rgba(79,138,255,.15);border-radius:10px;padding:.5rem .7rem;text-align:center;flex-shrink:0}
+.event-month{font-size:.65rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+.event-day{font-size:1.4rem;font-weight:800;font-family:var(--font);color:var(--accent);line-height:1}
+
+/* GAMIFICATION */
+.game-hero{background:linear-gradient(135deg,var(--card),rgba(79,138,255,.1));border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:2rem}
+.xp-ring{width:100px;height:100px;border-radius:50%;background:conic-gradient(var(--accent) 0% 68%,var(--border) 68% 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.xp-inner{width:80px;height:80px;border-radius:50%;background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.xp-num{font-family:var(--font);font-size:1.2rem;font-weight:800;color:var(--accent)}
+.xp-label{font-size:.6rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.badges-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.8rem}
+.badge-item{display:flex;flex-direction:column;align-items:center;gap:.3rem;cursor:pointer}
+.badge-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2px solid var(--border);transition:all .2s}
+.badge-icon:hover{transform:scale(1.1)}
+.badge-earned .badge-icon{border-color:var(--accent4);background:rgba(245,158,11,.1)}
+.badge-locked .badge-icon{opacity:.4}
+.badge-name{font-size:.65rem;font-weight:600;color:var(--muted);text-align:center}
+.leaderboard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.2rem}
+.lb-row{display:flex;align-items:center;gap:12px;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.lb-row:last-child{border-bottom:none}
+.lb-rank{width:28px;font-weight:800;font-family:var(--font);font-size:.9rem;text-align:center}
+.lb-r1{color:var(--accent4)}.lb-r2{color:var(--muted)}.lb-r3{color:#cd7f32}
+.lb-name{flex:1;font-size:.85rem;font-weight:600}
+.lb-pts{font-size:.82rem;color:var(--accent);font-weight:700}
+.lb-bar-wrap{width:80px;background:var(--border);border-radius:100px;height:4px}
+.lb-bar{height:4px;border-radius:100px;background:var(--accent)}
+
+/* LOADING SPINNER */
+.spinner{width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:middle;margin-right:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* NOTIFICATIONS */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.8rem 1.2rem;font-size:.85rem;z-index:999;animation:fadeIn .3s ease;max-width:300px}
+.toast.success{border-color:var(--accent3);color:var(--accent3)}
+.toast.info{border-color:var(--accent);color:var(--accent)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:2rem}
+  .features-grid,.module-grid,.job-layout,.wellness-tools,.cred-grid,.a11y-grid,.community-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.2rem}
+  .nav-tabs{display:none}
+}
+
+/* ACCESSIBILITY OVERRIDES */
+body.dyslexia-mode{font-family:'Arial',sans-serif!important;letter-spacing:.05em;word-spacing:.15em;line-height:2}
+body.high-contrast{--text:#ffffff;--muted:#dddddd;--border:#555}
+body.large-text{font-size:1.1rem}
+body.reduced-motion *{animation:none!important;transition:none!important}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">Neuro<span>Thrive</span></div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showPage('home',this)">Home</button>
+      <button class="nav-tab" onclick="showPage('learn',this)">Learning</button>
+      <button class="nav-tab" onclick="showPage('jobs',this)">Jobs</button>
+      <button class="nav-tab" onclick="showPage('wellness',this)">Wellness</button>
+      <button class="nav-tab" onclick="showPage('credentials',this)">Credentials</button>
+      <button class="nav-tab" onclick="showPage('community',this)">Community</button>
+      <button class="nav-tab" onclick="showPage('gamification',this)">Rewards</button>
+      <button class="nav-tab" onclick="showPage('accessibility',this)">Access</button>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle accessibility settings">⚙</button>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div>
+      <div class="hero-badge"><div class="pulse"></div>AI-POWERED INCLUSIVE PLATFORM</div>
+      <h1>A World Where Every <span class="grad">Mind Thrives</span></h1>
+      <p>Personalized learning, AI-driven job matching, mental wellness tools, and verified credentials — designed from the ground up for neurodiverse individuals.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('learn',document.querySelector('.nav-tab:nth-child(2)'))">Start Learning ✦</button>
+        <button class="btn-outline" onclick="showPage('jobs',document.querySelector('.nav-tab:nth-child(3)'))">Find Jobs</button>
+      </div>
+      <div style="margin-top:2rem;display:flex;gap:2rem;flex-wrap:wrap">
+        <div><div style="font-size:1.6rem;font-weight:800;font-family:var(--font);color:var(--accent)">1 in 7</div><div style="font-size:.78rem;color:var(--muted)">People are neurodiverse</div></div>
+        <div><div style="font-size:1.6rem;font-weight:800;font-family:var(--font);color:#a78bfa">80%</div><div style="font-size:.78rem;color:var(--muted)">Adults with autism unemployed</div></div>
+        <div><div style="font-size:1.6rem;font-weight:800;font-family:var(--font);color:var(--accent3)">3x</div><div style="font-size:.78rem;color:var(--muted)">Higher dropout rate</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:1rem">Platform Overview</div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-num s-blue">2,847</div><div class="stat-label">Active Learners</div></div>
+        <div class="stat-card"><div class="stat-num s-purple">94%</div><div class="stat-label">Job Match Rate</div></div>
+        <div class="stat-card"><div class="stat-num s-green">1,204</div><div class="stat-label">Jobs Placed</div></div>
+        <div class="stat-card"><div class="stat-num s-amber">4.9★</div><div class="stat-label">Avg User Rating</div></div>
+      </div>
+      <div style="margin-top:1rem;padding:1rem;background:var(--surface);border-radius:10px;border:1px solid var(--border)">
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-weight:600">AI PERSONALIZATION ACTIVE</div>
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem"><span style="font-size:.78rem">Cognitive profile</span><div style="flex:1;height:4px;background:var(--border);border-radius:2px"><div style="width:78%;height:4px;background:var(--accent);border-radius:2px"></div></div><span style="font-size:.72rem;color:var(--accent)">78%</span></div>
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem"><span style="font-size:.78rem">Learning style</span><div style="flex:1;height:4px;background:var(--border);border-radius:2px"><div style="width:92%;height:4px;background:var(--accent3);border-radius:2px"></div></div><span style="font-size:.72rem;color:var(--accent3)">92%</span></div>
+        <div style="display:flex;align-items:center;gap:.5rem"><span style="font-size:.78rem">Job fit score</span><div style="flex:1;height:4px;background:var(--border);border-radius:2px"><div style="width:85%;height:4px;background:#a78bfa;border-radius:2px"></div></div><span style="font-size:.72rem;color:#a78bfa">85%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div class="tag tag-blue">PLATFORM FEATURES</div>
+      <h2>Everything You Need to Thrive</h2>
+      <p>Six integrated modules working together for your unique journey</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card blue" onclick="showPage('learn',document.querySelector('.nav-tab:nth-child(2)'))">
+        <div class="feat-icon ic-blue">📚</div>
+        <h3>Personalized Learning</h3>
+        <p>Adaptive modules tailored to your cognitive style — visual, auditory, kinesthetic. Smart pacing, multi-format lessons, and NLP-based explanations.</p>
+        <div style="margin-top:.8rem"><span class="pill p-blue">Visual Mode</span> <span class="pill p-green">Self-Paced</span></div>
+      </div>
+      <div class="feat-card purple" onclick="showPage('jobs',document.querySelector('.nav-tab:nth-child(3)'))">
+        <div class="feat-icon ic-purple">💼</div>
+        <h3>AI Job Matching</h3>
+        <p>AI scans your skill profile and matches you with neurodivergent-friendly employers. Includes AI resume builder with cognitive-load optimization.</p>
+        <div style="margin-top:.8rem"><span class="pill" style="background:rgba(124,58,237,.15);color:#a78bfa">AI-Powered</span></div>
+      </div>
+      <div class="feat-card green" onclick="showPage('wellness',document.querySelector('.nav-tab:nth-child(4)'))">
+        <div class="feat-icon ic-green">🧘</div>
+        <h3>Mental Wellness</h3>
+        <p>Daily check-ins, breathing exercises, affirmations, and mood tracking — designed with neurodivergent mental health needs in mind.</p>
+        <div style="margin-top:.8rem"><span class="pill p-green">Daily Check-ins</span></div>
+      </div>
+      <div class="feat-card amber" onclick="showPage('credentials',document.querySelector('.nav-tab:nth-child(5)'))">
+        <div class="feat-icon ic-amber">🔐</div>
+        <h3>Blockchain Credentials</h3>
+        <p>Every skill earned gets a tamper-proof blockchain certificate. Share verifiable proof of your abilities with employers worldwide.</p>
+        <div style="margin-top:.8rem"><span class="pill" style="background:rgba(245,158,11,.15);color:var(--accent4)">Verifiable NFT</span></div>
+      </div>
+      <div class="feat-card blue" onclick="showPage('community',document.querySelector('.nav-tab:nth-child(6)'))">
+        <div class="feat-icon ic-blue">🌐</div>
+        <h3>Inclusive Community</h3>
+        <p>Safe, moderated spaces for sharing, mentorship programs, NGO partnerships, and peer support networks across 12 languages.</p>
+        <div style="margin-top:.8rem"><span class="pill p-blue">12 Languages</span></div>
+      </div>
+      <div class="feat-card purple" onclick="showPage('gamification',document.querySelector('.nav-tab:nth-child(7)'))">
+        <div class="feat-icon ic-purple">🎮</div>
+        <h3>Gamification & Rewards</h3>
+        <p>XP points, achievement badges, challenges, and a leaderboard. Learning feels like play — dopamine-friendly reward loops.</p>
+        <div style="margin-top:.8rem"><span class="pill" style="background:rgba(124,58,237,.15);color:#a78bfa">Rewards System</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEARNING PAGE -->
+<div id="page-learn" class="page">
+  <div class="section">
+    <div class="section-head">
+      <div class="tag tag-blue">PERSONALIZED LEARNING</div>
+      <h2>Your Adaptive Learning Path</h2>
+      <p>Content adapts to your cognitive style in real time</p>
+    </div>
+    <div class="module-grid">
+      <div class="module-sidebar">
+        <h4>Curriculum</h4>
+        <div class="module-item sel" onclick="loadLesson(0,this)"><div class="module-dot d-active"></div><div><div class="module-item-label">Focus Skills</div><div class="module-item-sub">Active • Module 1</div></div></div>
+        <div class="module-item" onclick="loadLesson(1,this)"><div class="module-dot d-done"></div><div><div class="module-item-label">Reading Strategies</div><div class="module-item-sub">Completed • Module 2</div></div></div>
+        <div class="module-item" onclick="loadLesson(2,this)"><div class="module-dot d-active"></div><div><div class="module-item-label">Math Visually</div><div class="module-item-sub">In Progress • Module 3</div></div></div>
+        <div class="module-item" onclick="loadLesson(3,this)"><div class="module-dot d-locked"></div><div><div class="module-item-label">Executive Function</div><div class="module-item-sub">Locked • Module 4</div></div></div>
+        <div class="module-item" onclick="loadLesson(4,this)"><div class="module-dot d-locked"></div><div><div class="module-item-label">Social Navigation</div><div class="module-item-sub">Locked • Module 5</div></div></div>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+          <div style="font-size:.75rem;color:var(--muted);margin-bottom:.4rem">Overall Progress</div>
+          <div class="progress-bar-wrap"><div class="progress-bar" id="overall-progress" style="width:45%"></div></div>
+          <div style="font-size:.75rem;color:var(--accent)">45% Complete</div>
+        </div>
+        <div style="margin-top:1rem;padding:1rem;background:var(--surface);border-radius:10px;border:1px solid var(--border)">
+          <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:.5rem">Learning Style</div>
+          <div style="display:flex;flex-direction:column;gap:.4rem">
+            <div onclick="setStyle(this,'Visual')" style="padding:.4rem .6rem;border-radius:7px;cursor:pointer;font-size:.78rem;background:rgba(79,138,255,.15);color:var(--accent);border:1px solid rgba(79,138,255,.3)" class="style-opt sel-style">👁 Visual</div>
+            <div onclick="setStyle(this,'Auditory')" style="padding:.4rem .6rem;border-radius:7px;cursor:pointer;font-size:.78rem;border:1px solid var(--border)" class="style-opt">👂 Auditory</div>
+            <div onclick="setStyle(this,'Kinesthetic')" style="padding:.4rem .6rem;border-radius:7px;cursor:pointer;font-size:.78rem;border:1px solid var(--border)" class="style-opt">✋ Kinesthetic</div>
+          </div>
+        </div>
+      </div>
+      <div class="module-content">
+        <div class="lesson-header">
+          <div class="lesson-title" id="lesson-title">Focus & Attention Skills</div>
+          <div class="lesson-meta">
+            <span class="pill p-blue" id="lesson-duration">⏱ 20 min</span>
+            <span class="pill p-green" id="lesson-level">Beginner</span>
+          </div>
+        </div>
+        <div class="lesson-video" onclick="playLesson()">
+          <div class="play-btn" id="play-btn">▶</div>
+          <div id="play-text" style="font-size:.82rem;color:var(--muted)">Click to start lesson</div>
+          <div id="progress-text" style="display:none;font-size:.78rem;color:var(--accent);position:absolute;bottom:1rem;right:1rem">0% watched</div>
+        </div>
+        <div id="lesson-desc" style="font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:1rem">Learn evidence-based focus techniques adapted for ADHD and autism. This module uses visual chunking, color-coded timers, and spaced repetition to help you build lasting attention habits.</div>
+        <div class="lesson-steps" id="lesson-steps">
+          <div class="step"><div class="step-num">1</div><div><p>Understand your attention span baseline using the Pomodoro method</p></div></div>
+          <div class="step"><div class="step-num">2</div><div><p>Visual distraction mapping — color-code your environment triggers</p></div></div>
+          <div class="step"><div class="step-num">3</div><div><p>Build a personalized focus ritual with sensory anchors</p></div></div>
+          <div class="step"><div class="step-num">4</div><div><p>Practice the "body double" technique for task initiation</p></div></div>
+        </div>
+        <div style="font-size:.8rem;color:var(--muted);margin-bottom:.3rem">Lesson progress</div>
+        <div class="progress-bar-wrap"><div class="progress-bar" id="lesson-progress" style="width:30%"></div></div>
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:1rem">30% Complete</div>
+        <div class="quiz-box">
+          <div class="quiz-q" id="quiz-q">Quick Check: What is the core benefit of the Pomodoro technique for ADHD individuals?</div>
+          <div class="quiz-options" id="quiz-opts">
+            <button class="quiz-opt" onclick="answerQuiz(this,false)">Increases multitasking</button>
+            <button class="quiz-opt" onclick="answerQuiz(this,true)">Creates predictable time chunks</button>
+            <button class="quiz-opt" onclick="answerQuiz(this,false)">Requires no breaks</button>
+            <button class="quiz-opt" onclick="answerQuiz(this,false)">Works only for visual types</button>
+          </div>
+          <div id="quiz-feedback" style="margin-top:.6rem;font-size:.8rem;display:none"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JOBS PAGE -->
+<div id="page-jobs" class="page">
+  <div class="section">
+    <div class="section-head">
+      <div class="tag tag-purple">AI JOB PORTAL</div>
+      <h2>Neurodivergent-Friendly Careers</h2>
+      <p>AI matches your unique profile to employers who value your strengths</p>
+    </div>
+    <div class="job-layout">
+      <div>
+        <div class="job-filter">
+          <div class="filter-sec">
+            <div class="filter-label">Job Type</div>
+            <div class="filter-chip-group">
+              <span class="f-chip on" onclick="toggleChip(this)">Remote</span>
+              <span class="f-chip" onclick="toggleChip(this)">Hybrid</span>
+              <span class="f-chip" onclick="toggleChip(this)">On-site</span>
+            </div>
+          </div>
+          <div class="filter-sec">
+            <div class="filter-label">Accommodations</div>
+            <div class="filter-chip-group">
+              <span class="f-chip on" onclick="toggleChip(this)">Flexible Hours</span>
+              <span class="f-chip" onclick="toggleChip(this)">Quiet Space</span>
+              <span class="f-chip" onclick="toggleChip(this)">Written Comms</span>
+              <span class="f-chip" onclick="toggleChip(this)">No Dress Code</span>
+            </div>
+          </div>
+          <div class="filter-sec">
+            <div class="filter-label">Domain</div>
+            <div class="filter-chip-group">
+              <span class="f-chip on" onclick="toggleChip(this)">Tech</span>
+              <span class="f-chip" onclick="toggleChip(this)">Design</span>
+              <span class="f-chip" onclick="toggleChip(this)">Data</span>
+              <span class="f-chip" onclick="toggleChip(this)">Writing</span>
+            </div>
+          </div>
+          <div class="filter-sec">
+            <div class="filter-label">AI Match Score</div>
+            <input type="range" class="font-slider" min="50" max="100" value="70" oninput="document.getElementById('match-val').textContent=this.value+'%'">
+            <div style="font-size:.8rem;color:var(--accent)">Min: <span id="match-val">70%</span></div>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.2rem;margin-top:1rem">
+          <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.8rem">Your AI Profile</div>
+          <div style="font-size:.82rem;line-height:1.7;color:var(--muted)">
+            🧠 <strong style="color:var(--text)">ADHD + Dyslexia</strong><br>
+            ✦ Strengths: Pattern recognition, creativity, hyperfocus<br>
+            📍 Preference: Remote, async communication<br>
+            💡 Top Skills: Python, Data Analysis, UX Research
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+          <div style="font-weight:700">24 Matched Opportunities</div>
+          <div style="display:flex;gap:.5rem">
+            <button class="btn-outline" style="padding:6px 16px;font-size:.8rem" onclick="showAIAnalysis()">🤖 AI Analysis</button>
+          </div>
+        </div>
+        <div id="ai-job-output" class="ai-output" style="margin-bottom:1rem"></div>
+        <div class="job-cards">
+          <div class="job-card" onclick="applyToJob(this)">
+            <div class="match-badge">97% Match</div>
+            <div class="job-card-top">
+              <div class="job-logo" style="background:rgba(79,138,255,.2);color:var(--accent)">MS</div>
+              <div><div class="job-title">Data Analyst — Accessibility Team</div><div class="job-company">Microsoft • Remote • Full-time</div></div>
+            </div>
+            <div class="job-tags">
+              <span class="job-tag" style="background:rgba(16,185,129,.1);color:var(--accent3)">✓ Flexible Hours</span>
+              <span class="job-tag" style="background:rgba(79,138,255,.1);color:var(--accent)">✓ Neurodivergent Program</span>
+              <span class="job-tag" style="background:rgba(245,158,11,.1);color:var(--accent4)">✓ Written Comms</span>
+            </div>
+            <div class="job-bottom">
+              <div class="job-salary">₹18–24 LPA</div>
+              <button class="job-apply">Apply Now</button>
+            </div>
+          </div>
+          <div class="job-card" onclick="applyToJob(this)">
+            <div class="match-badge">91% Match</div>
+            <div class="job-card-top">
+              <div class="job-logo" style="background:rgba(16,185,129,.2);color:var(--accent3)">GG</div>
+              <div><div class="job-title">UX Researcher</div><div class="job-company">Google • Hybrid • Full-time</div></div>
+            </div>
+            <div class="job-tags">
+              <span class="job-tag" style="background:rgba(16,185,129,.1);color:var(--accent3)">✓ Quiet Office Zone</span>
+              <span class="job-tag" style="background:rgba(79,138,255,.1);color:var(--accent)">✓ Sensory Support</span>
+            </div>
+            <div class="job-bottom">
+              <div class="job-salary">₹22–30 LPA</div>
+              <button class="job-apply">Apply Now</button>
+            </div>
+          </div>
+          <div class="job-card" onclick="applyToJob(this)">
+            <div class="match-badge">88% Match</div>
+            <div class="job-card-top">
+              <div class="job-logo" style="background:rgba(124,58,237,.2);color:#a78bfa">DP</div>
+              <div><div class="job-title">Python Developer</div><div class="job-company">Deloitte • Remote • Contract</div></div>
+            </div>
+            <div class="job-tags">
+              <span class="job-tag" style="background:rgba(16,185,129,.1);color:var(--accent3)">✓ Async-First</span>
+              <span class="job-tag" style="background:rgba(245,158,11,.1);color:var(--accent4)">✓ Output-Based</span>
+            </div>
+            <div class="job-bottom">
+              <div class="job-salary">₹15–20 LPA</div>
+              <button class="job-apply">Apply Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="resume-section">
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:1rem">🤖 AI Resume Builder</h3>
+          <div class="resume-grid">
+            <div class="resume-field"><label>Full Name</label><input type="text" placeholder="Your name" value="Aryan Sharma" /></div>
+            <div class="resume-field"><label>Target Role</label><input type="text" placeholder="e.g. Data Analyst" value="Data Analyst" /></div>
+            <div class="resume-field"><label>Key Skills</label><input type="text" placeholder="Python, SQL, Figma..." value="Python, Excel, UX Research" /></div>
+            <div class="resume-field"><label>Your Superpower</label><input type="text" placeholder="e.g. Pattern recognition" value="Hyperfocus on complex data" /></div>
+          </div>
+          <div class="resume-field" style="margin-top:.8rem"><label>About You (optional)</label><textarea placeholder="Tell us your story..." rows="2"></textarea></div>
+          <button class="ai-suggest-btn" onclick="generateResume()">✦ Generate AI-Optimized Resume Summary</button>
+          <div class="ai-output" id="resume-output"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WELLNESS PAGE -->
+<div id="page-wellness" class="page">
+  <div class="section">
+    <div class="section-head">
+      <div class="tag tag-green">MENTAL WELLNESS</div>
+      <h2>Your Daily Wellness Check-in</h2>
+      <p>Designed with neurodivergent emotional regulation in mind</p>
+    </div>
+    <div style="font-weight:700;font-size:.95rem;margin-bottom:1rem">How are you feeling today?</div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:.8rem;margin-bottom:2rem">
+      <div class="mood-card" onclick="selectMood(this,'Thriving 🌟')"><div class="mood-emoji">🌟</div><div class="mood-label">Thriving</div></div>
+      <div class="mood-card" onclick="selectMood(this,'Good 😊')"><div class="mood-emoji">😊</div><div class="mood-label">Good</div></div>
+      <div class="mood-card" onclick="selectMood(this,'Okay 😐')"><div class="mood-emoji">😐</div><div class="mood-label">Okay</div></div>
+      <div class="mood-card" onclick="selectMood(this,'Stressed 😰')"><div class="mood-emoji">😰</div><div class="mood-label">Stressed</div></div>
+      <div class="mood-card" onclick="selectMood(this,'Overwhelmed 🌀')"><div class="mood-emoji">🌀</div><div class="mood-label">Overwhelmed</div></div>
+      <div class="mood-card" onclick="selectMood(this,'Low 😔')"><div class="mood-emoji">😔</div><div class="mood-label">Low</div></div>
+    </div>
+    <div id="mood-response" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem;margin-bottom:1.5rem">
+      <div id="mood-text" style="font-size:.9rem;line-height:1.7"></div>
+    </div>
+    <div class="wellness-tools">
+      <div class="tool-card">
+        <h4>🌬 Breathing Exercise</h4>
+        <p>4-7-8 breathing technique to regulate the nervous system</p>
+        <div class="breathing-circle" id="breath-circle" onclick="startBreathing()">
+          <span id="breath-text">Start</span>
+        </div>
+        <div id="breath-instruction" style="text-align:center;font-size:.8rem;color:var(--muted)">Click to begin guided breathing</div>
+        <div style="display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap">
+          <button class="btn-outline" style="font-size:.78rem;padding:6px 14px" onclick="startBreathing()">Box Breathing</button>
+          <button class="btn-outline" style="font-size:.78rem;padding:6px 14px" onclick="startBreathing()">4-7-8 Method</button>
+        </div>
+      </div>
+      <div class="tool-card">
+        <h4>💬 Daily Affirmation</h4>
+        <p>Neurodiverse-positive affirmations to start your day</p>
+        <div class="affirmation-box" id="affirmation-box">"My brain works differently — and that difference is a superpower the world needs."</div>
+        <button class="btn-outline" style="width:100%;font-size:.82rem;padding:8px" onclick="newAffirmation()">↻ New Affirmation</button>
+      </div>
+      <div class="tool-card">
+        <h4>📊 Mood Tracker (7 Days)</h4>
+        <p>Your emotional patterns help us personalize support</p>
+        <div class="chart-mini" id="mood-chart">
+          <div class="bar" style="height:60%;background:var(--accent)" title="Mon"></div>
+          <div class="bar" style="height:80%;background:var(--accent3)" title="Tue"></div>
+          <div class="bar" style="height:50%;background:var(--accent4)" title="Wed"></div>
+          <div class="bar" style="height:90%;background:var(--accent3)" title="Thu"></div>
+          <div class="bar" style="height:40%;background:var(--accent5)" title="Fri"></div>
+          <div class="bar" style="height:70%;background:var(--accent3)" title="Sat"></div>
+          <div class="bar" style="height:85%;background:var(--accent3)" title="Sun"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted)"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <button class="btn-outline" style="width:100%;font-size:.78rem;padding:6px;margin-top:.6rem" onclick="showToast('Full mood history exported','info')">📥 Export History</button>
+      </div>
+      <div class="tool-card">
+        <h4>🧠 Sensory Checklist</h4>
+        <p>Track your sensory environment to prevent overload</p>
+        <div style="display:flex;flex-direction:column;gap:.5rem" id="sensory-list">
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;cursor:pointer"><input type="checkbox" onchange="updateSensory()" /> Noise level is comfortable</label>
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;cursor:pointer"><input type="checkbox" checked onchange="updateSensory()" /> Lighting feels okay</label>
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;cursor:pointer"><input type="checkbox" onchange="updateSensory()" /> Clothing is not causing distress</label>
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;cursor:pointer"><input type="checkbox" checked onchange="updateSensory()" /> Have had a break recently</label>
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;cursor:pointer"><input type="checkbox" onchange="updateSensory()" /> Temperature is comfortable</label>
+        </div>
+        <div id="sensory-score" style="margin-top:.8rem;font-size:.8rem;color:var(--accent)">Sensory Score: 2/5</div>
+      </div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-top:1rem">
+      <h3 style="font-size:1rem;font-weight:700;margin-bottom:1rem">🆘 Immediate Support Resources</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem">
+        <div style="background:var(--surface);border-radius:10px;padding:.8rem;border:1px solid var(--border)"><div style="font-weight:700;font-size:.85rem;margin-bottom:.3rem">iCall (India)</div><div style="font-size:.75rem;color:var(--muted)">9152987821 — Mon–Sat, 8am–10pm</div></div>
+        <div style="background:var(--surface);border-radius:10px;padding:.8rem;border:1px solid var(--border)"><div style="font-weight:700;font-size:.85rem;margin-bottom:.3rem">Vandrevala Foundation</div><div style="font-size:.75rem;color:var(--muted)">1860-2662-345 — 24/7</div></div>
+        <div style="background:var(--surface);border-radius:10px;padding:.8rem;border:1px solid var(--border)"><div style="font-weight:700;font-size:.85rem;margin-bottom:.3rem">NIMHANS, Bangalore</div><div style="font-size:.75rem;color:var(--muted)">080-46110007 — Weekdays</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CREDENTIALS PAGE -->
+<div id="page-credentials" class="page">
+  <div class="section">
+    <div class="section-head">
+      <div class="tag tag-amber">BLOCKCHAIN CREDENTIALS</div>
+      <h2>Your Verified Skill Portfolio</h2>
+      <p>Tamper-proof certificates stored on blockchain — owned by you forever</p>
+    </div>
+    <div style="background:var(--card);border:1px solid rgba(245,158,11,.3);border-radius:16px;padding:1.2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem">
+      <div style="font-size:1.5rem">🔗</div>
+      <div><div style="font-weight:700;font-size:.9rem;margin-bottom:.2rem">Blockchain Network: Ethereum Mainnet</div><div style="font-size:.78rem;color:var(--muted)">Wallet: 0x742d...a3c2 • 7 credentials minted • All verified</div></div>
+      <div style="margin-left:auto"><span class="verified-badge">✓ CONNECTED</span></div>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-card cred-blue">
+        <div class="cred-icon">🐍</div>
+        <div class="cred-title">Python Programming</div>
+        <div class="cred-issuer">Issued by NeuroThrive Academy • March 2025</div>
+        <div class="cred-hash">Token: 0x7f4a2b...c9d1<br>Block: #18,429,847</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem"><span class="verified-badge">✓ VERIFIED</span><span style="font-size:.75rem;color:var(--accent4)">⭐ 94/100</span></div>
+        <button class="verify-btn" onclick="verifyOnChain(this)">🔍 Verify on Chain</button>
+      </div>
+      <div class="cred-card cred-purple">
+        <div class="cred-icon">🎨</div>
+        <div class="cred-title">UX Design Fundamentals</div>
+        <div class="cred-issuer">Issued by NeuroThrive Academy • Feb 2025</div>
+        <div class="cred-hash">Token: 0x3a9c8e...f2b7<br>Block: #18,398,121</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem"><span class="verified-badge">✓ VERIFIED</span><span style="font-size:.75rem;color:var(--accent4)">⭐ 88/100</span></div>
+        <button class="verify-btn" onclick="verifyOnChain(this)">🔍 Verify on Chain</button>
+      </div>
+      <div class="cred-card cred-green">
+        <div class="cred-icon">📊</div>
+        <div class="cred-title">Data Analysis with Excel</div>
+        <div class="cred-issuer">Issued by NeuroThrive Academy • Jan 2025</div>
+        <div class="cred-hash">Token: 0x5d2f1a...e4c3<br>Block: #18,271,533</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem"><span class="verified-badge">✓ VERIFIED</span><span style="font-size:.75rem;color:var(--accent4)">⭐ 91/100</span></div>
+        <button class="verify-btn" onclick="verifyOnChain(this)">🔍 Verify on Chain</button>
+      </div>
+      <div class="cred-card" style="border-style:dashed;border-color:var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;cursor:pointer;gap:.8rem" onclick="showToast('Complete a module to earn new credentials','info')">
+        <div style="font-size:2rem;opacity:.4">+</div>
+        <div style="font-size:.85rem;color:var(--muted);text-align:center">Complete more modules to<br>earn new credentials</div>
+      </div>
+      <div class="cred-card" style="border-style:dashed;opacity:.5;border-color:var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;gap:.5rem">
+        <div style="font-size:1.8rem">🔒</div><div style="font-size:.82rem;color:var(--muted);text-align:center">Executive Function<br><span style="font-size:.72rem">Locked — 65% progress needed</span></div>
+      </div>
+      <div class="cred-card" style="border-style:dashed;opacity:.5;border-color:var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;gap:.5rem">
+        <div style="font-size:1.8rem">🔒</div><div style="font-size:.82rem;color:var(--muted);text-align:center">Social Navigation<br><span style="font-size:.72rem">Locked — Module 5 required</span></div>
+      </div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-top:1.5rem">
+      <h3 style="font-size:1rem;font-weight:700;margin-bottom:.8rem">🌐 Share Your Portfolio</h3>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+        <button class="btn-primary" onclick="showToast('LinkedIn profile updated with credentials!','success')">Share to LinkedIn</button>
+        <button class="btn-outline" onclick="showToast('Portfolio link copied to clipboard','info')">📋 Copy Portfolio Link</button>
+        <button class="btn-outline" onclick="showToast('PDF certificate generated','success')">📄 Download PDF</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY PAGE -->
+<div id="page-community" class="page">
+  <div class="section">
+    <div class="section-head">
+      <div class="tag tag-blue">INCLUSIVE COMMUNITY</div>
+      <h2>Connect, Share & Grow Together</h2>
+      <p>Safe, moderated spaces for neurodiverse individuals worldwide</p>
+    </div>
+    <div class="community-grid">
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+          <h3 style="font-size:.95rem;font-weight:700">Community Feed</h3>
+          <button class="btn-primary" style="padding:6px 16px;font-size:.78rem" onclick="newPost()">+ New Post</button>
+        </div>
+        <div id="community-feed">
+          <div class="post-card">
+            <div class="post-header">
+              <div class="avatar" style="background:rgba(79,138,255,.2);color:var(--accent)">PK</div>
+              <div><div class="post-author">Priya K.</div><div class="post-time">2 hours ago • ADHD Community</div></div>
+            </div>
+            <div class="post-body">Just got my Python credential! I never thought I could code, but the visual learning mode made everything click. Hyperfocus is real — 6-hour session yesterday! 🎉</div>
+            <div class="post-actions">
+              <button class="post-action" onclick="likePost(this)">❤ <span>24</span> Likes</button>
+              <button class="post-action">💬 8 Replies</button>
+              <button class="post-action">🔗 Share</button>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-header">
+              <div class="avatar" style="background:rgba(16,185,129,.2);color:var(--accent3)">RM</div>
+              <div><div class="post-author">Rahul M.</div><div class="post-time">5 hours ago • Autism Support</div></div>
+            </div>
+            <div class="post-body">The job matching feature is incredible. It found me a remote data role at Microsoft that offers a quiet workspace policy and async communication. Starting next month!</div>
+            <div class="post-actions">
+              <button class="post-action" onclick="likePost(this)">❤ <span>67</span> Likes</button>
+              <button class="post-action">💬 23 Replies</button>
+              <button class="post-action">🔗 Share</button>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-header">
+              <div class="avatar" style="background:rgba(245,158,11,.2);color:var(--accent4)">SA</div>
+              <div><div class="post-author">Sneha A.</div><div class="post-time">Yesterday • Dyslexia Circle</div></div>
+            </div>
+            <div class="post-body">PSA: The dyslexia reading mode with the colored overlays and larger spacing has been a game changer. I finished an entire module in one sitting for the first time ever!</div>
+            <div class="post-actions">
+              <button class="post-action" onclick="likePost(this)">❤ <span>112</span> Likes</button>
+              <button class="post-action">💬 41 Replies</button>
+              <button class="post-action">🔗 Share</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:.95rem;margin-bottom:1rem">Upcoming Events</div>
+        <div class="event-card">
+          <div class="event-date"><div class="event-month">Jun</div><div class="event-day">12</div></div>
+          <div><div style="font-weight:700;font-size:.85rem;margin-bottom:.2rem">ADHD Strengths Workshop</div><div style="font-size:.75rem;color:var(--muted)">Online • 6:00 PM IST • 200 attending</div></div>
+          <button class="btn-primary" style="margin-left:auto;padding:5px 12px;font-size:.75rem" onclick="showToast('Registered for ADHD Workshop!','success')">Join</button>
+        </div>
+        <div class="event-card">
+          <div class="event-date"><div class="event-month">Jun</div><div class="event-day">18</div></div>
+          <div><div style="font-weight:700;font-size:.85rem;margin-bottom:.2rem">Autism Employment Fair</div><div style="font-size:.75rem;color:var(--muted)">Mumbai & Online • 30 companies</div></div>
+          <button class="btn-primary" style="margin-left:auto;padding:5px 12px;font-size:.75rem" onclick="showToast('Registered for Employment Fair!','success')">Join</button>
+        </div>
+        <div class="event-card">
+          <div class="event-date"><div class="event-month">Jun</div><div class="event-day">25</div></div>
+          <div><div style="font-weight:700;font-size:.85rem;margin-bottom:.2rem">Dyslexia Learning Circle</div><div style="font-size:.75rem;color:var(--muted)">Online • Weekly • 85 members</div></div>
+          <button class="btn-primary" style="margin-left:auto;padding:5px 12px;font-size:.75rem" onclick="showToast('Joined Dyslexia Circle!','success')">Join</button>
+        </div>
+        <div style="font-weight:700;font-size:.95rem;margin-bottom:1rem;margin-top:1.5rem">NGO & Government Partners</div>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <span style="padding:5px 14px;border:1px solid var(--border);border-radius:100px;font-size:.75rem;background:var(--surface)">Action for Autism</span>
+          <span style="padding:5px 14px;border:1px solid var(--border);border-radius:100px;font-size:.75rem;background:var(--surface)">NIMHANS</span>
+          <span style="padding:5px 14px;border:1px solid var(--border);border-radius:100px;font-size:.75rem;background:var(--surface)">DRDO India</span>
+          <span style="padding:5px 14px;border:1px solid var(--border);border-radius:100px;font-size:.75rem;background:var(--surface)">NIEPA</span>
+          <span style="padding:5px 14px;border:1px solid var(--border);border-radius:100px;font-size:.75rem;background:var(--surface)">UNICEF India</span>
+        </div>
+        <div style="font-weight:700;font-size:.95rem;margin-bottom:.8rem;margin-top:1.5rem">Language Support</div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+          <span style="padding:4px 10px;border-radius:6px;font-size:.72rem;background:rgba(79,138,255,.1);color:var(--accent)">EN</span>
+          <span style="padding:4px 10px;border-radius:6px;font-size:.72rem;background:rgba(16,185,129,.1);color:var(--accent3)">हि</span>
+          <span style="padding:4px 10px;border-radius:6px;font-size:.72rem;background:rgba(245,158,11,.1);color:var(--accent4)">বাং</span>
+          <span style="padding:4px 10px;border-radius:6px;font-size:.72rem;background:rgba(124,58,237,.1);color:#a78bfa">தமி</span>
+          <span style="padding:4px 10px;border-radius:6px;font-size:.72rem;background:rgba(239,68,68,.1);color:var(--accent5)">తె</span>
+          <span style="padding:4px 10px;border-radius:6px;font-size:.72rem;background:rgba(79,138,255,.1);color:var(--accent)">+ 7</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GAMIFICATION PAGE -->
+<div id="page-gamification" class="page">
+  <div class="section">
+    <div class="section-head">
+      <div class="tag tag-purple">REWARDS & GAMIFICATION</div>
+      <h2>Level Up Your Journey</h2>
+      <p>Dopamine-friendly reward loops designed for neurodiverse brains</p>
+    </div>
+    <div class="game-hero">
+      <div class="xp-ring"><div class="xp-inner"><div class="xp-num">L.8</div><div class="xp-label">Level</div></div></div>
+      <div>
+        <div style="font-family:var(--font);font-size:1.4rem;font-weight:800;margin-bottom:.3rem">Aryan Sharma</div>
+        <div style="font-size:.85rem;color:var(--muted);margin-bottom:.8rem">🏆 Rank: Top 12% • 3,240 XP • 47 day streak 🔥</div>
+        <div style="font-size:.78rem;color:var(--muted);margin-bottom:.3rem">Progress to Level 9: 3240 / 4000 XP</div>
+        <div class="progress-bar-wrap" style="width:300px"><div class="progress-bar" style="width:81%"></div></div>
+        <div class="badges-row">
+          <div class="badge-item badge-earned"><div class="badge-icon">🎯</div><div class="badge-name">Focus Master</div></div>
+          <div class="badge-item badge-earned"><div class="badge-icon">🔥</div><div class="badge-name">30-Day Streak</div></div>
+          <div class="badge-item badge-earned"><div class="badge-icon">🐍</div><div class="badge-name">Coder</div></div>
+          <div class="badge-item badge-earned"><div class="badge-icon">💼</div><div class="badge-name">Job Ready</div></div>
+          <div class="badge-item badge-locked"><div class="badge-icon">🦋</div><div class="badge-name">Transformer</div></div>
+          <div class="badge-item badge-locked"><div class="badge-icon">🌍</div><div class="badge-name">Global Star</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+      <div>
+        <h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem">🎯 Active Challenges</h3>
+        <div style="display:flex;flex-direction:column;gap:.8rem">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem">
+            <div style="display:flex;justify-content:space-between;margin-bottom:.4rem"><span style="font-weight:700;font-size:.85rem">Complete 3 lessons this week</span><span style="font-size:.78rem;color:var(--accent4)">+150 XP</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar" style="width:67%"></div></div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:.3rem">2/3 completed</div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem">
+            <div style="display:flex;justify-content:space-between;margin-bottom:.4rem"><span style="font-weight:700;font-size:.85rem">7-day wellness streak</span><span style="font-size:.78rem;color:var(--accent4)">+200 XP</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar" style="width:86%;background:linear-gradient(90deg,var(--accent3),var(--accent))"></div></div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:.3rem">6/7 days</div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem">
+            <div style="display:flex;justify-content:space-between;margin-bottom:.4rem"><span style="font-weight:700;font-size:.85rem">Apply to 2 jobs</span><span style="font-size:.78rem;color:var(--accent4)">+100 XP</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar" style="width:50%"></div></div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:.3rem">1/2 applied</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem">🏆 Leaderboard</h3>
+        <div class="leaderboard">
+          <div class="lb-row"><div class="lb-rank lb-r1">1</div><div class="avatar" style="width:28px;height:28px;font-size:.7rem;background:rgba(245,158,11,.2);color:var(--accent4)">NK</div><div class="lb-name">Nisha K.</div><div class="lb-bar-wrap"><div class="lb-bar" style="width:100%"></div></div><div class="lb-pts">4,820 XP</div></div>
+          <div class="lb-row"><div class="lb-rank lb-r2">2</div><div class="avatar" style="width:28px;height:28px;font-size:.7rem;background:rgba(79,138,255,.2);color:var(--accent)">VR</div><div class="lb-name">Vikram R.</div><div class="lb-bar-wrap"><div class="lb-bar" style="width:84%"></div></div><div class="lb-pts">4,045 XP</div></div>
+          <div class="lb-row"><div class="lb-rank lb-r3">3</div><div class="avatar" style="width:28px;height:28px;font-size:.7rem;background:rgba(16,185,129,.2);color:var(--accent3)">AM</div><div class="lb-name">Aisha M.</div><div class="lb-bar-wrap"><div class="lb-bar" style="width:79%"></div></div><div class="lb-pts">3,810 XP</div></div>
+          <div class="lb-row" style="background:rgba(79,138,255,.05);border-radius:8px;border-color:rgba(79,138,255,.2)"><div class="lb-rank" style="color:var(--accent)">4</div><div class="avatar" style="width:28px;height:28px;font-size:.7rem;background:rgba(79,138,255,.2);color:var(--accent)">AS</div><div class="lb-name" style="color:var(--accent)">You</div><div class="lb-bar-wrap"><div class="lb-bar" style="width:67%"></div></div><div class="lb-pts" style="color:var(--accent)">3,240 XP</div></div>
+          <div class="lb-row"><div class="lb-rank" style="color:var(--muted)">5</div><div class="avatar" style="width:28px;height:28px;font-size:.7rem;background:rgba(124,58,237,.2);color:#a78bfa">DG</div><div class="lb-name">Dev G.</div><div class="lb-bar-wrap"><div class="lb-bar" style="width:61%"></div></div><div class="lb-pts">2,960 XP</div></div>
+        </div>
+        <button class="btn-outline" style="width:100%;margin-top:.8rem;font-size:.8rem" onclick="showToast('Full leaderboard coming soon!','info')">View All Rankings</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACCESSIBILITY PAGE -->
+<div id="page-accessibility" class="page">
+  <div class="section">
+    <div class="section-head">
+      <div class="tag tag-green">ACCESSIBILITY SETTINGS</div>
+      <h2>Customize Your Experience</h2>
+      <p>Your platform, your rules — designed around your cognitive needs</p>
+    </div>
+    <div class="a11y-panel">
+      <h3 style="font-size:.9rem;font-weight:700;margin-bottom:1rem">Visual & Cognitive Adaptations</h3>
+      <div class="a11y-grid">
+        <div class="a11y-option" onclick="toggleA11y(this,'dyslexia-mode')"><div class="a11y-icon">🔤</div><div class="a11y-label">Dyslexia Font</div><div class="a11y-desc">OpenDyslexic typeface</div></div>
+        <div class="a11y-option" onclick="toggleA11y(this,'high-contrast')"><div class="a11y-icon">🌓</div><div class="a11y-label">High Contrast</div><div class="a11y-desc">Maximum text contrast</div></div>
+        <div class="a11y-option" onclick="toggleA11y(this,'large-text')"><div class="a11y-icon">🔠</div><div class="a11y-label">Large Text</div><div class="a11y-desc">110% font scale</div></div>
+        <div class="a11y-option" onclick="toggleA11y(this,'reduced-motion')"><div class="a11y-icon">🌀</div><div class="a11y-label">Reduce Motion</div><div class="a11y-desc">No animations</div></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem">
+        <h3 style="font-size:.9rem;font-weight:700;margin-bottom:1rem">Text Size</h3>
+        <input type="range" class="font-slider" min="80" max="150" value="100" oninput="adjustFontSize(this.value)">
+        <div style="font-size:.8rem;color:var(--muted)">Current: <span id="font-size-val">100%</span></div>
+        <div style="margin-top:1rem;padding:.8rem;background:var(--surface);border-radius:8px;font-size:.85rem;line-height:1.7" id="font-preview">This is how your text will appear across the platform.</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem">
+        <h3 style="font-size:.9rem;font-weight:700;margin-bottom:1rem">Color Theme</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
+          <div style="padding:.6rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.78rem;text-align:center;background:#0a0e1a;color:#e8eaf0" onclick="showToast('Dark theme active','info')">🌑 Dark (Default)</div>
+          <div style="padding:.6rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.78rem;text-align:center;background:#f8f9fa;color:#111" onclick="showToast('Light theme applied','info')">☀ Light</div>
+          <div style="padding:.6rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.78rem;text-align:center;background:#fdf6e3;color:#657b83" onclick="showToast('Solarized theme applied','info')">🌅 Solarized</div>
+          <div style="padding:.6rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.78rem;text-align:center;background:#1a1a2e;color:#e94560" onclick="showToast('High Energy theme applied','info')">⚡ High Energy</div>
+        </div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem">
+        <h3 style="font-size:.9rem;font-weight:700;margin-bottom:1rem">Reading Support</h3>
+        <div style="display:flex;flex-direction:column;gap:.6rem">
+          <label style="display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:.85rem"><input type="checkbox" checked /> Colored reading overlays</label>
+          <label style="display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:.85rem"><input type="checkbox" /> Word-by-word highlighting</label>
+          <label style="display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:.85rem"><input type="checkbox" checked /> Text-to-speech mode</label>
+          <label style="display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:.85rem"><input type="checkbox" /> Reading ruler overlay</label>
+          <label style="display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:.85rem"><input type="checkbox" checked /> Increase line spacing</label>
+        </div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem">
+        <h3 style="font-size:.9rem;font-weight:700;margin-bottom:1rem">Interaction Style</h3>
+        <div style="display:flex;flex-direction:column;gap:.6rem">
+          <label style="display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:.85rem"><input type="checkbox" checked /> Larger click targets</label>
+          <label style="display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:.85rem"><input type="checkbox" /> Sticky focus indicators</label>
+          <label style="display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:.85rem"><input type="checkbox" checked /> Confirm before exit</label>
+          <label style="display:flex;align-items:center;gap:.6em;cursor:pointer;font-size:.85rem"><input type="checkbox" /> Simplified navigation</label>
+          <label style="display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:.85rem"><input type="checkbox" checked /> Keyboard shortcuts</label>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-top:1rem">
+      <h3 style="font-size:.9rem;font-weight:700;margin-bottom:.8rem">🤖 AI NLP Interface</h3>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem">Interact with the platform using natural language — no complex menus needed</p>
+      <div style="display:flex;gap:.6rem">
+        <input type="text" id="nlp-input" placeholder='Try: "Find me remote Python jobs" or "Start a breathing exercise"' style="flex:1;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.7rem 1rem;color:var(--text);font-family:var(--body);font-size:.85rem;outline:none"/>
+        <button class="btn-primary" onclick="handleNLP()" style="flex-shrink:0">Go</button>
+      </div>
+      <div id="nlp-response" style="margin-top:.8rem;font-size:.82rem;color:var(--muted);display:none;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.8rem;line-height:1.7"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast" style="display:none"></div>
+
+<script>
+const pages=['home','learn','jobs','wellness','credentials','community','gamification','accessibility'];
+function showPage(id,tab){
+  pages.forEach(p=>{
+    document.getElementById('page-'+p).classList.remove('active');
+  });
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  if(tab)tab.classList.add('active');
+}
+
+const lessons=[
+  {title:'Focus & Attention Skills',dur:'20 min',level:'Beginner',desc:'Learn evidence-based focus techniques adapted for ADHD and autism. Visual chunking, color-coded timers, and spaced repetition.',steps:['Understand your attention span baseline','Visual distraction mapping','Build a personalized focus ritual','Practice the body double technique'],q:'What is the core benefit of the Pomodoro technique?',opts:['Increases multitasking','Creates predictable time chunks','Requires no breaks','Works only for visual types'],ans:1},
+  {title:'Reading Strategies for Dyslexia',dur:'25 min',level:'Beginner',desc:'Phonics-based and whole-word reading strategies adapted for dyslexic learners. Includes colored overlay tools.',steps:['Phonological awareness basics','Sight word chunking technique','Colored overlay calibration','Fluency building practice'],q:'Which strategy helps dyslexic readers most?',opts:['Reading faster','Breaking words into chunks','Ignoring punctuation','Reading silently'],ans:1},
+  {title:'Math Through Visuals',dur:'30 min',level:'Intermediate',desc:'Abstract math concepts made concrete through color-coded diagrams, manipulatives, and pattern recognition.',steps:['Number sense through color','Visual fractions','Pattern-based algebra','Spatial geometry'],q:'Visual math primarily helps by:',opts:['Reducing the need for calculations','Making abstract concepts concrete','Eliminating word problems','Speeding up arithmetic'],ans:1},
+  {title:'Executive Function Skills',dur:'35 min',level:'Intermediate',desc:'Planning, organization, time management, and impulse control skills for neurodiverse individuals.',steps:['Task decomposition method','Visual schedule building','Working memory strategies','Emotional regulation toolkit'],q:'Executive function helps most with:',opts:['Raw intelligence','Planning and organizing','Memorization','Physical coordination'],ans:1},
+  {title:'Social Navigation',dur:'40 min',level:'Advanced',desc:'Understanding social cues, communication styles, and building authentic connections as a neurodiverse individual.',steps:['Reading non-verbal cues','Script building for anxiety','Setting communication boundaries','Masking vs. authenticity'],q:'Social scripts primarily help with:',opts:['Impressing people','Reducing social anxiety','Avoiding all interaction','Changing personality'],ans:0}
+];
+
+let lessonProgress=30;
+let isPlaying=false;
+let playInterval;
+
+function loadLesson(idx,el){
+  document.querySelectorAll('.module-item').forEach(i=>i.classList.remove('sel'));
+  el.classList.add('sel');
+  const l=lessons[idx];
+  document.getElementById('lesson-title').textContent=l.title;
+  document.getElementById('lesson-duration').textContent='⏱ '+l.dur;
+  document.getElementById('lesson-level').textContent=l.level;
+  document.getElementById('lesson-desc').textContent=l.desc;
+  const stepsEl=document.getElementById('lesson-steps');
+  stepsEl.innerHTML=l.steps.map((s,i)=>`<div class="step"><div class="step-num">${i+1}</div><div><p>${s}</p></div></div>`).join('');
+  document.getElementById('quiz-q').textContent='Quick Check: '+l.q;
+  const optsEl=document.getElementById('quiz-opts');
+  optsEl.innerHTML=l.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQuiz(this,${i===l.ans})">${o}</button>`).join('');
+  document.getElementById('quiz-feedback').style.display='none';
+  lessonProgress=0;
+  updateProgress();
+  stopLesson();
+}
+
+function playLesson(){
+  if(isPlaying){stopLesson();return;}
+  isPlaying=true;
+  document.getElementById('play-btn').textContent='⏸';
+  document.getElementById('play-text').textContent='Lesson in progress...';
+  document.getElementById('progress-text').style.display='block';
+  playInterval=setInterval(()=>{
+    lessonProgress=Math.min(lessonProgress+1,100);
+    updateProgress();
+    if(lessonProgress>=100){stopLesson();showToast('+75 XP earned!','success');}
+  },200);
+}
+function stopLesson(){
+  isPlaying=false;
+  clearInterval(playInterval);
+  document.getElementById('play-btn').textContent='▶';
+  if(lessonProgress<100)document.getElementById('play-text').textContent='Click to resume';
+  else document.getElementById('play-text').textContent='Lesson complete! ✓';
+}
+function updateProgress(){
+  document.getElementById('lesson-progress').style.width=lessonProgress+'%';
+  document.getElementById('progress-text').textContent=lessonProgress+'% watched';
+}
+
+function answerQuiz(btn,correct){
+  document.querySelectorAll('.quiz-opt').forEach(b=>{b.disabled=true;});
+  btn.classList.add(correct?'correct':'wrong');
+  const fb=document.getElementById('quiz-feedback');
+  fb.style.display='block';
+  fb.style.color=correct?'var(--accent3)':'var(--accent5)';
+  fb.textContent=correct?'✓ Correct! Great understanding. +25 XP earned!':'✗ Not quite. The key benefit is creating predictable time chunks for better focus.';
+  if(correct)showToast('+25 XP for correct answer!','success');
+}
+
+function setStyle(el,style){
+  document.querySelectorAll('.style-opt').forEach(o=>{
+    o.style.background='transparent';o.style.color='var(--text)';o.style.border='1px solid var(--border)';
+  });
+  el.style.background='rgba(79,138,255,.15)';el.style.color='var(--accent)';el.style.border='1px solid rgba(79,138,255,.3)';
+  showToast(style+' mode activated','info');
+}
+
+function toggleChip(el){el.classList.toggle('on');}
+function toggleA11y(el,cls){
+  el.classList.toggle('on');
+  document.body.classList.toggle(cls);
+  showToast(el.querySelector('.a11y-label').textContent+(document.body.classList.contains(cls)?' enabled':' disabled'),'info');
+}
+function adjustFontSize(v){
+  document.getElementById('font-size-val').textContent=v+'%';
+  document.getElementById('font-preview').style.fontSize=(v/100)+'rem';
+}
+
+function showAIAnalysis(){
+  const out=document.getElementById('ai-job-output');
+  out.innerHTML='<div class="spinner"></div>Analyzing your profile against 24 opportunities...';
+  out.classList.add('show');
+  setTimeout(()=>{
+    out.innerHTML='<strong style="color:var(--accent)">🤖 AI Job Analysis:</strong> Based on your ADHD + Dyslexia profile, pattern-recognition strength, and remote work preference — your top matches emphasize <em>async communication</em>, <em>data-heavy roles</em>, and <em>flexible output-based evaluation</em>. Avoid roles requiring extensive in-person presentations or rapid context-switching. Your hyperfocus trait is a strong differentiator for deep technical work.';
+  },1800);
+}
+
+function generateResume(){
+  const out=document.getElementById('resume-output');
+  out.innerHTML='<div class="spinner"></div>Generating AI-optimized summary...';
+  out.classList.add('show');
+  setTimeout(()=>{
+    out.innerHTML=`<strong style="color:var(--accent3)">✦ AI-Generated Summary:</strong><br><br>
+Results-driven Data Analyst with demonstrated expertise in Python, Excel, and UX Research. Known for exceptional hyperfocus on complex datasets, pattern recognition, and creative problem-solving — strengths that emerge from a neurodiverse cognitive profile. Experienced in translating intricate data into clear visual narratives. Seeks a remote-first, async-communication environment where deep focus drives measurable impact.<br><br>
+<span style="font-size:.75rem;color:var(--muted)">✦ Optimized for cognitive load • Strength-forward framing • Neurodivergent-inclusive language</span>`;
+    showToast('Resume summary ready! +50 XP','success');
+  },2000);
+}
+
+function applyToJob(card){
+  const company=card.querySelector('.job-company').textContent.split('•')[0].trim();
+  showToast('Application submitted to '+company+'! +100 XP','success');
+}
+
+let breathPhase=0,breathTimer;
+const breathPhases=['Inhale... 4s','Hold... 7s','Exhale... 8s'];
+const breathDurations=[4000,7000,8000];
+function startBreathing(){
+  clearTimeout(breathTimer);
+  const circle=document.getElementById('breath-circle');
+  const text=document.getElementById('breath-text');
+  const inst=document.getElementById('breath-instruction');
+  function nextPhase(){
+    circle.classList.toggle('expand',breathPhase===0||breathPhase===1);
+    text.textContent=breathPhases[breathPhase];
+    inst.textContent='Step '+(breathPhase+1)+' of 3 — '+(breathPhase===0?'Breathe in slowly':breathPhase===1?'Hold your breath':'Release slowly');
+    breathTimer=setTimeout(()=>{
+      breathPhase=(breathPhase+1)%3;
+      nextPhase();
+    },breathDurations[breathPhase]);
+  }
+  nextPhase();
+}
+
+const affirmations=[
+  '"My brain works differently — and that difference is a superpower the world needs."',
+  '"I am not broken. I am differently wired, and that\'s beautiful."',
+  '"My creativity, intensity, and unique perspective are gifts."',
+  '"I give myself permission to learn at my own pace."',
+  '"My struggles have made me resilient, empathetic, and strong."',
+  '"I deserve accommodations without apology."',
+  '"There is no one right way to learn, think, or be."',
+  '"I am worthy of belonging, just as I am."'
+];
+let affIdx=0;
+function newAffirmation(){
+  affIdx=(affIdx+1)%affirmations.length;
+  document.getElementById('affirmation-box').textContent=affirmations[affIdx];
+}
+
+function selectMood(card,mood){
+  document.querySelectorAll('.mood-card').forEach(c=>c.classList.remove('sel'));
+  card.classList.add('sel');
+  const responses={
+    'Thriving 🌟':'You\'re thriving! This is wonderful. Channel this energy into a challenging module or share your joy in the community.',
+    'Good 😊':'Glad you\'re feeling good today! A great moment to tackle a learning goal or connect with someone.',
+    'Okay 😐':'An okay day is still a day. Small steps count. Maybe try a 5-minute breathing exercise or one short lesson?',
+    'Stressed 😰':'Stress is real, and it\'s okay. Try the 4-7-8 breathing technique below. You don\'t need to push through alone.',
+    'Overwhelmed 🌀':'Overwhelm is a signal, not a failing. Please pause, use the breathing tool, and remember: one thing at a time.',
+    'Low 😔':'Thank you for checking in even when you\'re low. Please be gentle with yourself today. Support resources are available below.'
+  };
+  const el=document.getElementById('mood-response');
+  el.style.display='block';
+  document.getElementById('mood-text').innerHTML='<strong>'+mood+'</strong> — '+responses[mood];
+  showToast('Mood logged. Wellness streak updated!','success');
+}
+
+function updateSensory(){
+  const checks=document.querySelectorAll('#sensory-list input:checked');
+  document.getElementById('sensory-score').textContent='Sensory Score: '+checks.length+'/5 — '+(checks.length>=4?'Environment supportive':'Consider adjusting your space');
+}
+
+function verifyOnChain(btn){
+  btn.textContent='Verifying...';
+  setTimeout(()=>{btn.textContent='✓ Verified on Ethereum';btn.style.color='var(--accent3)';btn.style.borderColor='var(--accent3)';showToast('Credential verified on blockchain!','success');},1500);
+}
+
+function likePost(btn){
+  const span=btn.querySelector('span');
+  span.textContent=parseInt(span.textContent)+1;
+  btn.style.color='var(--accent5)';
+}
+
+function newPost(){
+  const feed=document.getElementById('community-feed');
+  const card=document.createElement('div');
+  card.className='post-card';
+  card.innerHTML=`<div class="post-header"><div class="avatar" style="background:rgba(79,138,255,.2);color:var(--accent)">You</div><div><div class="post-author">You</div><div class="post-time">Just now • General</div></div></div><div class="post-body">Just joined the platform! Ready to start my journey. Any tips for a new member? 👋</div><div class="post-actions"><button class="post-action" onclick="likePost(this)">❤ <span>0</span> Likes</button><button class="post-action">💬 0 Replies</button></div>`;
+  feed.insertBefore(card,feed.firstChild);
+  showToast('Post shared with the community!','success');
+}
+
+function handleNLP(){
+  const input=document.getElementById('nlp-input').value.toLowerCase();
+  const out=document.getElementById('nlp-response');
+  out.style.display='block';
+  if(input.includes('python')||input.includes('job')){out.textContent='🔍 Navigating to Jobs page with Python filter applied...';setTimeout(()=>showPage('jobs',document.querySelector('.nav-tab:nth-child(3)')),1000);}
+  else if(input.includes('breath')||input.includes('calm')){out.textContent='🌬 Opening Wellness module — Breathing Exercise...';setTimeout(()=>{showPage('wellness',document.querySelector('.nav-tab:nth-child(4)'));startBreathing();},1000);}
+  else if(input.includes('learn')||input.includes('course')){out.textContent='📚 Opening your personalized learning path...';setTimeout(()=>showPage('learn',document.querySelector('.nav-tab:nth-child(2)')),1000);}
+  else if(input.includes('credential')||input.includes('certificate')){out.textContent='🔐 Opening your blockchain credentials portfolio...';setTimeout(()=>showPage('credentials',document.querySelector('.nav-tab:nth-child(5)')),1000);}
+  else{out.textContent='🤖 I understood: "'+input+'". Please try: "find Python jobs", "start breathing exercise", "open learning", or "show credentials".';}
+}
+
+let toastTimeout;
+function showToast(msg,type){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.className='toast '+(type||'info');
+  t.style.display='block';
+  clearTimeout(toastTimeout);
+  toastTimeout=setTimeout(()=>{t.style.display='none';},3000);
+}
+</script>
+</body>
+</html>
